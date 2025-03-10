@@ -1,0 +1,6 @@
+train: data/coco/images/train/
+val: data/coco/images/val/
+
+nc: 12
+
+names: ['tablecaption', 'titlecover', 'titleindex', 'table', 'figure', 'header', 'footer', 'titlecontent', 'figurecaption', 'titlewithoutindex', 'titlenext', 'reference']
