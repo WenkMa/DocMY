@@ -78,13 +78,43 @@ We also provide trained YOLOv9 model weights and code. For more information, ref
 
 1. Validate different models on other open-source datasets to better support our paper:
 
-- [ ] PubLayNet
-- [ ] CDLA
-- [ ] D4LA
-- [ ] DocLayNet
+- [x] PubLayNet
 
-2. We are currently collecting and annotating more document layout analysis datasets, which will be released and updated in a timely manner.。
+- [x] CDLA
+
+- [x] D4LA
+
+- [x] DocLayNet
+
+  | Datasets  | Method      | P(%)       | R(%)       | mAP50(%)   | mAP50-95(%) |
+  | --------- | ----------- | ---------- | ---------- | ---------- | ----------- |
+  | PubLayNet | VGT(SOTA)   | -          | -          | 98.1       | 96.2        |
+  |           | Layoutlmv3  | -          | -          | 98.1       | 95.1        |
+  |           | DiT         | -          | -          | 97.9       | 93.8        |
+  |           | YOLOv9      | 87.2       | 86.5       | 88.1       | 83.1        |
+  |           | VMamba      | 97.4       | 95.3       | 88.9       | 90.78       |
+  |           | DocMY(ours) | 92.4(+5.2) | 91.5(+5.0) | 93.3(+5.2) | 88.4(+5.3)  |
+  | CDLA      | Layoutlmv3  | -          | -          | 66.9       | 47.0        |
+  |           | YOLOv5      | 91.5       | 85.7       | 91.9       | 66.6        |
+  |           | YOLOv8      | 90.2       | 88.2       | 93.8       | 77.2        |
+  |           | YOLOv9      | 90.1       | 87.4       | 94.0       | 77.3        |
+  |           | VMamba      | 89.5       | 88.0       | 93.5       | 78.3        |
+  |           | DocMY(ours) | 93.2(+2.2) | 91.4(+4.0) | 96.1(+2.1) | 83.3(+6.0)  |
+  | DocLayNet | GLAM(SOTA)  | -          | -          | -          | 80.8        |
+  |           | Layoutlmv3  | -          | -          | 90.2       | 72.6        |
+  |           | YOLOv9      | 88.5       | 81.8       | 89.6       | 69.8        |
+  |           | VMamba      | 88.6       | 84.0       | 91.1       | 69.8        |
+  |           | DocMY(ours) | 89.5(+1.0) | 81.8       | 90.2(+0.6) | 70.9(+1.1)  |
+  | D4LA      | VGT(SOTA)   | -          | -          | 81.9       | 68.8        |
+  |           | Layoutlmv3  | -          | -          | 75.2       | 61.9        |
+  |           | YOLOv9      | 75.1       | 64.1       | 69.8       | 56.0        |
+  |           | VMamba      | 77.4       | 66.4       | 71.7       | 57.8        |
+  |           | DocMY(ours) | 77.8(+2.7) | 71.7(+7.6) | 76.7(+6.9) | 62.8(+6.8)  |
+
+  Effects of Our Method on PubLayNet, CDLA, DocLayNet, and D4LA. Bold indicates performance improvement compared to baseline YOLOv9. - indicates that we did not find or reproduce the result.
+
+2. We have collected documents in more languages and are currently marking them. Meanwhile, we have also uploaded our latest weights to Hugging Face. We will update the progress of our work in time.
 
 ## Acknowledgement
 
-This repo is modified from open source real-time object detection codebase [Ultralytics](https://github.com/ultralytics/ultralytics), [Mamba-YOLO](https://github.com/HZAI-ZJNU/Mamba-YOLO) and [VMamba](https://github.com/MzeroMiko/VMamba). The selective-scan from [Mamba](https://github.com/state-spaces/mamba).
+This repo is modified from open source real-time object detection codebase [Ultralytics](https://github.com/ultralytics/ultralytics), [Mamba-YOLO](https://github.com/HZAI-ZJNU/Mamba-YOLO), [VMamba](https://github.com/MzeroMiko/VMamba) and [Unlim](https://github.com/microsoft/unilm). The selective-scan from [Mamba](https://github.com/state-spaces/mamba).
