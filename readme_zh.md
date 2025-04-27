@@ -1,5 +1,7 @@
 ## Mamba-YOLO: Multi-Level Adaptive Rectangular Convolution for Document Layout Analysis
+
 👉 [Click here to view the English instructions](./README.md)
+
 ## 介绍
 
 ​	本文介绍了一种基于中文多种类文档的版面分析数据集和一种新颖的版面分析方法。在数据集方面，我们将现有工作中的‘Title’类别进行细化，同时引入了多个细粒度下的标题类别信息；其次我们将图片，表格和公式的标注范围进行调整，使其能够覆盖对应的描述信息或者公式序号。在模型方法方面，我们介绍了一种基于YOLOv9框架，引入Mamba结构和多层自适应矩形卷积方法，有效的提升了文档版面分析的工作。
@@ -76,13 +78,43 @@ python detect.py --source './data/document/notice.jpg' --img 640 --device 0 --we
 
 1.验证不同模型在其他开源数据集的实验，更好的补充我们文章。
 
-- [ ] PubLayNet
-- [ ] CDLA
-- [ ] D4LA
-- [ ] DocLayNet
+- [x] PubLayNet
 
-2.我们正在收集并进行标注更多的文档版面分析数据集，将会及时的在本地公布并更新数据集网址。
+- [x] CDLA
+
+- [x] D4LA
+
+- [x] DocLayNet
+
+  | Datasets  | Method      | P(%)       | R(%)       | mAP50(%)   | mAP50-95(%) |
+  | --------- | ----------- | ---------- | ---------- | ---------- | ----------- |
+  | PubLayNet | VGT(SOTA)   | -          | -          | 98.1       | 96.2        |
+  |           | Layoutlmv3  | -          | -          | 98.1       | 95.1        |
+  |           | DiT         | -          | -          | 97.9       | 93.8        |
+  |           | YOLOv9      | 87.2       | 86.5       | 88.1       | 83.1        |
+  |           | VMamba      | 97.4       | 95.3       | 97.9       | 90.8        |
+  |           | DocMY(ours) | 92.4(+5.2) | 91.5(+5.0) | 93.3(+5.2) | 88.4(+5.3)  |
+  | CDLA      | Layoutlmv3  | -          | -          | 66.9       | 47.0        |
+  |           | YOLOv5      | 91.5       | 85.7       | 91.9       | 66.6        |
+  |           | YOLOv8      | 90.2       | 88.2       | 93.8       | 77.2        |
+  |           | YOLOv9      | 90.1       | 87.4       | 94.0       | 77.3        |
+  |           | VMamba      | 89.5       | 88.0       | 93.5       | 78.3        |
+  |           | DocMY(ours) | 93.2(+2.2) | 91.4(+4.0) | 96.1(+2.1) | 83.3(+6.0)  |
+  | DocLayNet | GLAM(SOTA)  | -          | -          | -          | 80.8        |
+  |           | Layoutlmv3  | -          | -          | 90.2       | 72.6        |
+  |           | YOLOv9      | 88.5       | 81.8       | 89.6       | 69.8        |
+  |           | VMamba      | 88.6       | 84.0       | 91.1       | 69.8        |
+  |           | DocMY(ours) | 89.5(+1.0) | 81.8       | 90.2(+0.6) | 70.9(+1.1)  |
+  | D4LA      | VGT(SOTA)   | -          | -          | 81.9       | 68.8        |
+  |           | Layoutlmv3  | -          | -          | 75.2       | 61.9        |
+  |           | YOLOv9      | 75.1       | 64.1       | 69.8       | 56.0        |
+  |           | VMamba      | 77.4       | 66.4       | 71.7       | 57.8        |
+  |           | DocMY(ours) | 77.8(+2.7) | 71.7(+7.6) | 76.7(+6.9) | 62.8(+6.8)  |
+
+  Effects of Our Method on PubLayNet, CDLA, DocLayNet, and D4LA. Bold indicates performance improvement compared to baseline YOLOv9. - indicates that we did not find or reproduce the result.
+
+2.我们已经收集了更多的语言的文档，正在进行标注。同时我们也将我们最新的权重上传到了Hugging Face。我们会及时更新我们的工作进展。
 
 ## Acknowledgement
 
-This repo is modified from open source real-time object detection codebase [Ultralytics](https://github.com/ultralytics/ultralytics), [Mamba-YOLO](https://github.com/HZAI-ZJNU/Mamba-YOLO) and [VMamba](https://github.com/MzeroMiko/VMamba). The selective-scan from [Mamba](https://github.com/state-spaces/mamba).
+This repo is modified from open source real-time object detection codebase [Ultralytics](https://github.com/ultralytics/ultralytics), [Mamba-YOLO](https://github.com/HZAI-ZJNU/Mamba-YOLO), [VMamba](https://github.com/MzeroMiko/VMamba) and [Unlim](https://github.com/microsoft/unilm). The selective-scan from [Mamba](https://github.com/state-spaces/mamba).
