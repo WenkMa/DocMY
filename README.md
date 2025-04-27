@@ -92,7 +92,7 @@ We also provide trained YOLOv9 model weights and code. For more information, ref
   |           | Layoutlmv3  | -          | -          | 98.1       | 95.1        |
   |           | DiT         | -          | -          | 97.9       | 93.8        |
   |           | YOLOv9      | 87.2       | 86.5       | 88.1       | 83.1        |
-  |           | VMamba      | 97.4       | 95.3       | 88.9       | 90.78       |
+  |           | VMamba      | 97.4       | 95.3       | 97.9       | 90.8        |
   |           | DocMY(ours) | 92.4(+5.2) | 91.5(+5.0) | 93.3(+5.2) | 88.4(+5.3)  |
   | CDLA      | Layoutlmv3  | -          | -          | 66.9       | 47.0        |
   |           | YOLOv5      | 91.5       | 85.7       | 91.9       | 66.6        |
