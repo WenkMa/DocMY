@@ -55,21 +55,21 @@ Multiple GPU training
 
 ```
 # train DocMY models
-python -m torch.distributed.launch --nproc_per_node 4 --master_port 9527 train_dual.py --workers 4 --device 0,1,2,3 --sync-bn --batch -1 --data data/peki.yaml --img 640 --cfg models/detect/DocMY.yaml --weights '' --name DocMY --hyp hyp.scratch-high.yaml --min-items 0 --epochs 100 --close-mosaic 15
+python -m torch.distributed.launch --nproc_per_node 4 --master_port 9527 train_dual.py --workers 4 --device 0,1,2,3 --sync-bn --batch -1 --data /path/to/yaml --img 640 --cfg /path/to/yaml --weights '' --name DocMY --hyp hyp.scratch-high.yaml --min-items 0 --epochs 100 --close-mosaic 15
 ```
 
 ## 验证过程
 
 ```
 # evaluate converted yolov9 models
-python val.py --data data/peki.yaml --img 640 --batch 8 --conf 0.001 --iou 0.7 --device 0 --weights './DocMY.pt' --save-json --name yolov9_peki_val
+python val.py --data /path/to/yaml --img 640 --batch 8 --conf 0.001 --iou 0.7 --device 0 --weights /path/to/weights --save-json --name yolov9_peki_val
 ```
 
 ## 推理过程
 
 ```
 # inference converted yolov9 models
-python detect.py --source './data/document/notice.jpg' --img 640 --device 0 --weights './DocMY.pt' --name yolov9_peki_detect
+python detect.py --source /path/to/image --img 640 --device 0 --weights /path/to/weights --name yolov9_peki_detect
 ```
 
 我们同时还公布了我们使用YOLOv9训练后的模型权重和代码，可以参考yolov9-onnxruntime中的内容，并完成了服务端和请求端的代码信息。
